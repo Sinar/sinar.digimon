@@ -33,6 +33,7 @@ setup(name='sinar.digimon',
           'collective.dexteritytextindexer',
           'plone.app.multilingual',
           'plone.app.versioningbehavior',
+          'plone.formwidget.contenttree',
           'five.pt',
           # -*- Extra requirements: -*-
       ],
