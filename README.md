@@ -4,7 +4,7 @@ Digital Rights Incident Reporting
 
 ## Dev buildout
 
-    python bootstrap.py
+    python bootstrap-buildout.py
     bin/buildout
 
 To start:
