@@ -6,7 +6,7 @@ version = '0.1'
 setup(name='sinar.digimon',
       version=version,
       description="Plone Dexterity Form for digital rights violation reports",
-      long_description=open("README.rst").read() + "\n" +
+      long_description=open("README.md").read() + "\n" +
                        open(os.path.join("docs", "HISTORY.rst")).read(),
       # Get more strings from
       # http://pypi.python.org/pypi?%3Aaction=list_classifiers
@@ -29,11 +29,11 @@ setup(name='sinar.digimon',
           'plone.app.dexterity [grok, relations]',
           'plone.namedfile [blobs]',
           'collective.grok',
-          'plone.app.referenceablebehavior',
           'collective.dexteritytextindexer',
           'plone.app.multilingual',
           'plone.app.versioningbehavior',
           'plone.formwidget.contenttree',
+          'plone.app.widgets',
           'five.pt',
           # -*- Extra requirements: -*-
       ],

@@ -15,6 +15,8 @@ from plone.namedfile.interfaces import IImageScaleTraversable
 from plone.namedfile.field import NamedImage, NamedFile
 from plone.namedfile.field import NamedBlobImage, NamedBlobFile
 
+from plone.autoform import directives
+
 from plone.app.textfield import RichText
 
 from z3c.relationfield.schema import RelationList, RelationChoice
@@ -35,6 +37,21 @@ class IIncident(form.Schema, IImageScaleTraversable):
             title=_(u'Detailed Summary'),
             description=_(u'Detailed Summary of the incident'),
             required=True,
+            default=
+            u'''
+            <h3>Impact</h3>
+            <p>
+            Describe the impact of this incident
+            </p>
+            <h3>Solution</h3>
+            <p>Solution or workaround to this issue</p>
+            <h3>References</h3>
+            <p>
+            Additional links to other relevant information
+            </p>
+            <h3>Credit</h3>
+            <p>Reported by whom?</p>
+            '''
             )
 
     incident_date = schema.Datetime(
@@ -46,25 +63,42 @@ class IIncident(form.Schema, IImageScaleTraversable):
                      values=['Censorship','Takedown'],
                      )
 
-    media_type = schema.Choice(
+    media_type = schema.List(
                  title=_(u'Media Type'),
-                 values=['Article','News','Video','Audio','Photo'],
+                 value_type = schema.Choice(
+                        values=['Article','News','Video','Audio','Photo'],
+                        ),
                  )
 
-    offense_type = schema.Choice(
+    offense_type = schema.List(
                    title=_(u'Type of Offence'),
-                   values=['Sedition','National Security','Fraud',
+                   value_type = schema.Choice(
+                        values=['Sedition','National Security','Fraud',
                            'Copyright','Defamation','Gaming/Betting',
                            'Threats to life/property','Hacking',]
+                        ),
                    )
 
     #Law
-    #Enforcing Agency
+    national_law = schema.List(
+                   title=_(u'National Laws'),
+                   value_type = schema.Choice(
+                    vocabulary='sinar.digimon.malaysian_acts',
+                    ),
+                   )
 
-    sector_type = schema.Choice(
+    enforcement_agency = schema.List(
+                         title=_(u'Enforcement Agency'),
+                         value_type = schema.Choice(
+                             vocabulary='sinar.digimon.enforcement_agencies'),
+                         )
+
+    sector_type = schema.List(
                   title=_('Sector Type'),
-                  values=['Academia','Media','Private Sector',
+                  value_type=schema.Choice(
+                        values=['Academia','Media','Private Sector',
                           'Government','Civil Society','Public',]
+                        ),
                   )
 
 alsoProvides(IIncident, IFormFieldProvider)
