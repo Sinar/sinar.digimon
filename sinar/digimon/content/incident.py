@@ -16,6 +16,8 @@ from plone.namedfile.field import NamedImage, NamedFile
 from plone.namedfile.field import NamedBlobImage, NamedBlobFile
 
 from plone.autoform import directives
+from plone.app.z3cform.widget import AjaxSelectFieldWidget
+from plone.app.z3cform.widget import SelectFieldWidget
 
 from plone.app.textfield import RichText
 
@@ -23,12 +25,16 @@ from z3c.relationfield.schema import RelationList, RelationChoice
 from plone.formwidget.contenttree import ObjPathSourceBinder
 from collective import dexteritytextindexer
 
+from plone.supermodel import model
+from plone.autoform import directives as form
+
+
 from sinar.digimon import MessageFactory as _
 
 
 # Interface class; used to define content-type schema.
 
-class IIncident(form.Schema, IImageScaleTraversable):
+class IIncident(model.Schema, IImageScaleTraversable):
     """
     Incident Report
     """
@@ -63,6 +69,7 @@ class IIncident(form.Schema, IImageScaleTraversable):
                      values=['Censorship','Takedown'],
                      )
 
+    form.widget('media_type',SelectFieldWidget)
     media_type = schema.List(
                  title=_(u'Media Type'),
                  value_type = schema.Choice(
@@ -70,6 +77,7 @@ class IIncident(form.Schema, IImageScaleTraversable):
                         ),
                  )
 
+    form.widget('offense_type',SelectFieldWidget)
     offense_type = schema.List(
                    title=_(u'Type of Offence'),
                    value_type = schema.Choice(
@@ -80,6 +88,7 @@ class IIncident(form.Schema, IImageScaleTraversable):
                    )
 
     #Law
+    form.widget('national_law',SelectFieldWidget)
     national_law = schema.List(
                    title=_(u'National Laws'),
                    value_type = schema.Choice(
@@ -87,12 +96,14 @@ class IIncident(form.Schema, IImageScaleTraversable):
                     ),
                    )
 
+    form.widget('enforcement_agency',SelectFieldWidget)
     enforcement_agency = schema.List(
                          title=_(u'Enforcement Agency'),
                          value_type = schema.Choice(
                              vocabulary='sinar.digimon.enforcement_agencies'),
                          )
 
+    form.widget('sector_type',SelectFieldWidget)
     sector_type = schema.List(
                   title=_('Sector Type'),
                   value_type=schema.Choice(
