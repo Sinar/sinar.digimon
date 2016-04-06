@@ -31,6 +31,11 @@ class enforcement_agencies(grok.GlobalUtility):
         'title': 'Royal Malaysian Police',
         'token': 'pdrm',
         },
+       {
+        'value': 'f2efde1916764856a02542cff853a6b0',
+        'title': 'Malaysian Communications And Multimedia Commission', 
+        'token': 'mcmc',
+        },
     ]
 
     def __call__(self, context):
