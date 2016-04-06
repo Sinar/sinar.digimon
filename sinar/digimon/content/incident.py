@@ -60,7 +60,7 @@ class IIncident(model.Schema, IImageScaleTraversable):
             '''
             )
 
-    incident_date = schema.Datetime(
+    incident_date = schema.Date(
             title=_(u'Incident Date'),
             )
 

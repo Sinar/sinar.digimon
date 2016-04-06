@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<object name="portal_catalog">
+    <index name="incident_date" meta_type="DateIndex">
+        <indexed_attr value="incident_date"/>
+    </index>
+    <column value="incident_date" />
+
+    <index name="digimon_violation_type" meta_type="FieldIndex">
+        <indexed_attr value="violation_type"/>
+    </index>
+    <column value="violation_type" />
+
+    <index name="digimon_media_type" meta_type="KeywordIndex">
+        <indexed_attr value="media_type"/>
+    </index>
+    <column value="media_type" />
+    
+    <index name="digimon_offense_type" meta_type="KeywordIndex">
+        <indexed_attr value="offense_type"/>
+    </index>
+    <column value="offense_type" />
+   
+    <index name="digimon_national_law" meta_type="KeywordIndex">
+        <indexed_attr value="national_law"/>
+    </index>
+    <column value="national_law" />
+
+    <index name="digimon_enforcement_agency" meta_type="KeywordIndex">
+        <indexed_attr value="enforcement_agency"/>
+    </index>
+    <column value="enforcement_agency" />
+
+    <index name="digimon_sector_type" meta_type="KeywordIndex">
+        <indexed_attr value="sector_type"/>
+    </index>
+    <column value="sector_type" />
+
+    <index name="digimon_sector_type" meta_type="KeywordIndex">
+        <indexed_attr value="sector_type"/>
+    </index>
+    <column value="sector_type" />
+
+</object>
