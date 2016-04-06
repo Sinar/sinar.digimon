@@ -1,0 +1,27 @@
+<registry>
+  <records interface="plone.app.querystring.interfaces.IQueryField"
+           prefix="plone.app.querystring.field.digimon_violation_type">
+    <value key="title">Violation Type</value>
+    <value key="description">Incident Violation Type</value>
+    <value key="enabled">True</value>
+    <value key="sortable">False</value>
+    <value key="operations">
+        <element>plone.app.querystring.operation.selection.is</element>
+    </value>
+    <value key="group">Metadata</value>
+  </records>
+
+  <records interface="plone.app.querystring.interfaces.IQueryField"
+           prefix="plone.app.querystring.field.digimon_enforcement_agency">
+    <value key="title">Enformcement Agency</value>
+    <value key="description">Enforcement Agency</value>
+    <value key="enabled">True</value>
+    <value key="sortable">False</value>
+    <value key="operations">
+        <element>plone.app.querystring.operation.selection.is</element>
+    </value>
+    <value key="vocabulary">sinar.digimon.enforcement_agencies</value>
+    <value key="group">Metadata</value>
+  </records>
+
+</registry>
